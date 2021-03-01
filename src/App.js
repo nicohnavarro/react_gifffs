@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Gif from "./components/Gif";
 import { getGifs } from "./services/getGifs";
 
 const App = () => {
@@ -14,9 +15,8 @@ const App = () => {
     <div className="App">
       <h2>Nicolas</h2>
       <section className="App-content">
-        {gifs.map((gif) => (
-          <img src={gif} />
-        ))}
+        {
+        gifs.map(gif => <Gif key={gif.id} title={gif.title} id={gif.id} url={gif.url}/>)}
       </section>
     </div>
   );
