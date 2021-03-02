@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
-import Gif from "./components/Gif";
-import { getGifs } from "./services/getGifs";
+import ListGifs from "./components/ListGifs";
 
 const App = () => {
-  const [gifs, setGifs] = useState([]);
+  const [keyword, setKeyword] = useState("panda");
 
-  useEffect(() => {
-    console.info("Actualizando los gifs");
-    getGifs().then(gifs => setGifs(gifs));
-  }, []);
+  const handleClick = () => {
+    setKeyword("mrRobot");
+  };
 
   return (
     <div className="App">
       <h2>Nicolas</h2>
+      <h3>{keyword}</h3>
+      <button onClick={handleClick}>change keyword</button>
       <section className="App-content">
-        {
-        gifs.map(gif => <Gif key={gif.id} title={gif.title} id={gif.id} url={gif.url}/>)}
+        <ListGifs keyword={keyword} />
       </section>
     </div>
   );

@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 
-const Gif = ({title,id,url}) => {
-    return (
-        <div>
-           <h4>{title}</h4>
-            <small>{id}</small>
-            <img src={url} alt={url}/>
-        </div>
-    )
-}
+const Gif = ({ title, url, id}) => {
+  return (
+    <div className='Gif'>
+      <h4>{title}</h4>
+      <img src={url} alt={url} />
+    </div>
+  );
+};
 
-export default Gif
+export default Gif;
