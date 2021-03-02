@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import ListGifs from "./components/ListGifs";
-
+import { Route, Link } from "wouter";
 const App = () => {
-  const [keyword, setKeyword] = useState("panda");
-
-  const handleClick = () => {
-    setKeyword("mrRobot");
-  };
 
   return (
     <div className="App">
-      <h2>Nicolas</h2>
-      <h3>{keyword}</h3>
-      <button onClick={handleClick}>change keyword</button>
+      <h2>APP</h2>
+      <Link to='/gif/rick'>rick</Link>
+      <Link to='/gif/mrrobot'>mrrobot</Link>
+      <Link to='/gif/morty'>morty</Link>
       <section className="App-content">
-        <ListGifs keyword={keyword} />
+        <Route path="/gif/:keyword" component={ListGifs} />
       </section>
     </div>
   );
