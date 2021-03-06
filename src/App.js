@@ -1,17 +1,34 @@
 import React from "react";
 import "./App.css";
-import ListGifs from "./components/ListGifs";
+import Home from './pages/Home'
+import Detail from './pages/Detail'
+import SearchResults from './pages/SearchResults'
+
 import { Route, Link } from "wouter";
 const App = () => {
-
   return (
     <div className="App">
-      <h2>APP</h2>
-      <Link to='/gif/rick'>rick</Link>
-      <Link to='/gif/mrrobot'>mrrobot</Link>
-      <Link to='/gif/morty'>morty</Link>
       <section className="App-content">
-        <Route path="/gif/:keyword" component={ListGifs} />
+        <h2>APP</h2>
+        <Link to="/">
+          <img
+            className="App-logo"
+            src="./images/logo.png"
+            alt="Gifffs Logo"
+          ></img>
+        </Link>
+        <Route
+          path='/'
+          component={Home}
+        />
+        <Route
+          path='/search/:keyword'
+          component={SearchResults}
+        />
+        <Route 
+          path="/gif/:id" 
+          component={Detail} 
+        />
       </section>
     </div>
   );
