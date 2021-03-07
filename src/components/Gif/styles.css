@@ -1,8 +1,9 @@
 .Gif{
-    text-align: center;
-    align-items: center;
-    max-width: 200px;
-
+    width: 100px;
+    border: 1px solid pink;
+}
+.Gif img{
+    width: 100%;
 }
 .gif_title{
     text-align: center;

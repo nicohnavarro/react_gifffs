@@ -1,14 +1,23 @@
-.App{
-    height: 100vh;
-} 
-
-.App-content{
- display: flex;
- flex-direction: column;
- text-align: center;
- align-items: center;
+.App {
+  height: 100%;
+  min-height: 100vh;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
 }
 
-.App-logo{
-    width: 100px;
+.App-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.App-logo {
+  width: 100px;
+}
+
+.App-listGifs{
+    display: flex;
+    flex-direction: column;
+    margin-left:0 ;
 }
