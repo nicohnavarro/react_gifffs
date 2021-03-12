@@ -7,9 +7,13 @@ export function useGifs({ keyword }) {
 
   useEffect(function () {
     setLoading(true);
+    
+    const keywordToUse = keyword  || localStorage.getItem('lastKeyword');
+
     getGifs({ keyword }).then((gifs) => {
       setGifs(gifs);
       setLoading(false);
+      localStorage.setItem('lastKeyword',keyword);
     });
   },[keyword]);
 
