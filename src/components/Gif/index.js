@@ -1,18 +1,14 @@
 import React from "react";
-import './styles.css';
-import {Link, useLocation} from 'wouter'
+import "./styles.css";
+import { Link } from "wouter";
 
-const Gif = ({ title, url, id}) => {
-  const [path, pushLocation] = useLocation();
-  
-  const handleClick = (id)=>{
-    pushLocation(`/gif/${id}`);
-  }
-
+const Gif = ({ title, url, id }) => {
   return (
-    <div className='Gif' >
-      <h4 className='gif_title'>{title}</h4>
-      <img src={url} alt={url} onClick={handleClick(id)}/>
+    <div className="Gif">
+      <Link to={`/gif/${id}`} className="Gif-link">
+        <h4 className="gif_title">{title}</h4>
+        <img loading="lazy" src={url} alt={url} />
+      </Link>
     </div>
   );
 };
