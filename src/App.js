@@ -3,7 +3,8 @@ import "./App.css";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import SearchResults from "./pages/SearchResults";
-import StaticContext from "./contexts/StaticContext";
+import {GifsContextProvider} from "./context/GifsContext";
+import StaticContext from './context/StaticContext';
 
 import { Route, Link } from "wouter";
 const App = () => {
@@ -19,9 +20,11 @@ const App = () => {
               alt="Gifffs Logo"
             ></img>
           </Link>
+          <GifsContextProvider>
           <Route path="/" component={Home} />
           <Route path="/search/:keyword" component={SearchResults} />
           <Route path="/gif/:id" component={Detail} />
+          </GifsContextProvider>
         </section>
       </div>
     </StaticContext.Provider>

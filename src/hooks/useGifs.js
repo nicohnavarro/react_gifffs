@@ -1,21 +1,25 @@
-import { useEffect, useState } from "react";
-import { getGifs } from "../services/getGifs";
+import {useContext, useEffect, useState} from 'react'
+import getGifs from '../services/getGifs'
+import GifsContext from '../context/GifsContext'
 
-export function useGifs({ keyword }) {
-  const [loading, setLoading] = useState(false);
-  const [gifs, setGifs] = useState([]);
+export function useGifs ({ keyword, rating } = { keyword: null }) {
+  const [loading, setLoading] = useState(false)
+  const {gifs, setGifs} = useContext(GifsContext)
+
+  // recuperamos la keyword del localStorage
+  const keywordToUse = keyword || localStorage.getItem('lastKeyword') || 'random'
 
   useEffect(function () {
-    setLoading(true);
-    
-    const keywordToUse = keyword  || localStorage.getItem('lastKeyword');
+    setLoading(true)
 
-    getGifs({ keyword }).then((gifs) => {
-      setGifs(gifs);
-      setLoading(false);
-      localStorage.setItem('lastKeyword',keyword);
-    });
-  },[keyword]);
+    getGifs({ keyword: keywordToUse, rating })
+      .then(gifs => {
+        setGifs(gifs)
+        setLoading(false)
+        // guardamos la keyword en el localStorage
+        localStorage.setItem('lastKeyword', keyword)
+      })
+  }, [keyword, keywordToUse, rating, setGifs])
 
-return {loading,gifs};
+  return {loading, gifs}
 }
