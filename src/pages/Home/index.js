@@ -3,12 +3,11 @@ import {Link, useLocation} from 'wouter'
 import TrendingSearches from '../../components/TrendingSearches'
 import ListOfGifs from '../../components/ListOfGifs'
 
-const POPULAR_GIFS = ['Argentina','Colombia','Chile','Peru']
 
 export default function Home() {
   const [keyword, setkeyword] = useState('');
   const [path, pushLocation] = useLocation();
-
+  const gifs = [];
   const handleSubmit = (e) => {
     e.preventDefault();
     pushLocation(`/search/${keyword}`);
