@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useLocation} from 'wouter'
+import TrendingSearches from '../../components/TrendingSearches'
+import ListOfGifs from '../../components/ListOfGifs'
 
 const POPULAR_GIFS = ['Argentina','Colombia','Chile','Peru']
 
@@ -20,21 +22,23 @@ export default function Home() {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <button>Buscar</button>
         <input
           onChange={handleChange}
           type="text"
-          placeholder="Ingrese una palabra"
+          placeholder="Search a gif here"
           value={keyword}
         ></input>
       </form>
-      <h3 className="App_title">Tu buscador de Gifs</h3>
-      <ul>
-        {POPULAR_GIFS.map((popularGif) => (
-          <li key={popularGif}>
-            <Link to={`/search/${popularGif}`}>Gifs de {popularGif}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="App-main">
+        <div className = "App-results">
+          <h3 className="App_title">Tu buscador de Gifs</h3>
+          <ListOfGifs gifs={gifs}/>
+        </div>
+        <div className="App-category">
+          <TrendingSearches/>
+        </div>
+      </div>
     </>
   );
 }
