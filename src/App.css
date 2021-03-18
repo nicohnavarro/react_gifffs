@@ -11,6 +11,10 @@
   text-align: center;
   align-items: center;
 }
+.App-title{
+  margin-top:0;
+  padding:0;
+}
 
 .App-logo {
   width: 100px;

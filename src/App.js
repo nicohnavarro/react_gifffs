@@ -12,7 +12,7 @@ const App = () => {
     <StaticContext.Provider>
       <div className="App">
         <section className="App-content">
-          <h2>APP</h2>
+          <h2 className='App-title'>APP</h2>
           <Link to="/">
             <img
               className="App-logo"
